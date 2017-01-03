@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     @IBAction func addItemB(_ sender: UIButton) {
         if !(addItemTF.text?.isEmpty)! {
             bucketListArray.append(addItemTF.text!)
-            //updateBucketListTV()                    // call TV
             updateTextViews(array: bucketListArray, textView: bucketListTV)
             emptyAddBucketTF()
             updateButtons()
@@ -37,7 +36,6 @@ class ViewController: UIViewController {
     
     @IBAction func removeItemB(_ sender: UIButton) {
         bucketListArray.removeFirst()
-        //updateBucketListTV()                        // call TV
         updateTextViews(array: bucketListArray, textView: bucketListTV)
         updateButtons()
     }
@@ -45,13 +43,13 @@ class ViewController: UIViewController {
     @IBAction func addToThisWeek(_ sender: UIButton) {
         thisWeeksListArray.append(bucketListArray[0])
         bucketListArray.removeFirst()
-        movingItem()
+        moveItem()
     }
     
     @IBAction func removeFromThisWeek(_ sender: UIButton) {
         bucketListArray.insert(thisWeeksListArray[0], at: 0)
         thisWeeksListArray.removeFirst()
-        movingItem()
+        moveItem()
     }
 
     @IBAction func disableUserInterface(_ sender: UIButton) {
@@ -60,28 +58,11 @@ class ViewController: UIViewController {
     
     @IBAction func completeOneBucket(_ sender: UIButton) {
         thisWeeksListArray.removeFirst()
-        //updateBucketListThisWeekTV()                // call TV
         updateTextViews(array: thisWeeksListArray, textView: thisWeeksListTV)
         updateButtons()
     }
     
     // MARK: - Homemade Functions
-//    func updateBucketListTV() {
-//        bucketListTV.text = ""
-//        for bucketListItem in bucketListArray {
-//            bucketListTV.text.append(bucketListItem)
-//            bucketListTV.text.append("\n")
-//        }
-//    }
-//    
-//    func updateBucketListThisWeekTV() {
-//        thisWeeksListTV.text = ""
-//        for bucketListItemThisWeek in thisWeeksListArray {
-//            thisWeeksListTV.text.append(bucketListItemThisWeek)
-//            thisWeeksListTV.text.append("\n")
-//        }
-//    }
-    
     func updateTextViews(array: Array<String>, textView: UITextView) {
         textView.text = ""
         for arrayItem in array {
@@ -90,9 +71,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func movingItem() {
-//        updateBucketListThisWeekTV()
-//        updateBucketListTV()
+    func moveItem() {
         updateTextViews(array: bucketListArray, textView: bucketListTV)
         updateTextViews(array: thisWeeksListArray, textView: thisWeeksListTV)
         updateButtons()
