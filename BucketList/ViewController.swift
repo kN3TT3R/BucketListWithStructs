@@ -11,54 +11,66 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var addItemTF: UITextField!
-    @IBOutlet weak var bucketListTV: UITextView!
-    @IBOutlet weak var thisWeeksListTV: UITextView!
-    @IBOutlet weak var removeItemB: UIButton!
-    @IBOutlet weak var addItemToWeekB: UIButton!
-    @IBOutlet weak var addItemToListB: UIButton!
-    @IBOutlet weak var completeItemB: UIButton!
-    @IBOutlet var completeUI: UIView!
+    @IBOutlet weak var addItemTextField: UITextField!
+    @IBOutlet weak var bucketListTextView: UITextView!
+    @IBOutlet weak var weekListTextView: UITextView!
+    @IBOutlet weak var removeItemFromBucketListButton: UIButton!
+    @IBOutlet weak var moveItemToWeekListButton: UIButton!
+    @IBOutlet weak var moveItemToBucketListButton: UIButton!
+    @IBOutlet weak var completeItemButton: UIButton!
+    @IBOutlet var completeUIView: UIView!
 
     // MARK: - Global Variables & Constants
     var bucketListArray = [String] ()
-    var thisWeeksListArray = [String] ()
+    var weekListArray = [String] ()
+    
+    // MARK: - Overridden Functions
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     // MARK: - IBActions
-    @IBAction func addItemB(_ sender: UIButton) {
-        if !(addItemTF.text?.isEmpty)! {
-            bucketListArray.append(addItemTF.text!)
-            updateTextViews(array: bucketListArray, textView: bucketListTV)
-            emptyAddBucketTF()
+    @IBAction func addItemToBucketListButton(_ sender: UIButton) {
+        if !addItemTextField.text!.isEmpty {
+            bucketListArray.append(addItemTextField.text!)
+            updateTextViews(array: bucketListArray, textView: bucketListTextView)
+            addItemTextField.text?.removeAll()
+            addItemTextField.resignFirstResponder()
             updateButtons()
+        } else {
+            showAlert("Don't you got any wishes?", withTitle: "No wish!")
         }
     }
     
-    @IBAction func removeItemB(_ sender: UIButton) {
+    @IBAction func removeItemFromBucketListButton(_ sender: UIButton) {
         bucketListArray.removeFirst()
-        updateTextViews(array: bucketListArray, textView: bucketListTV)
+        updateTextViews(array: bucketListArray, textView: bucketListTextView)
         updateButtons()
     }
     
-    @IBAction func addToThisWeek(_ sender: UIButton) {
-        thisWeeksListArray.append(bucketListArray[0])
+    @IBAction func moveItemToWeekListButton(_ sender: UIButton) {
+        weekListArray.append(bucketListArray[0])
         bucketListArray.removeFirst()
         moveItem()
     }
-    
-    @IBAction func removeFromThisWeek(_ sender: UIButton) {
-        bucketListArray.insert(thisWeeksListArray[0], at: 0)
-        thisWeeksListArray.removeFirst()
+
+    @IBAction func moveItemToBucketListButton(_ sender: UIButton) {
+        bucketListArray.insert(weekListArray[0], at: 0)
+        weekListArray.removeFirst()
         moveItem()
     }
 
-    @IBAction func disableUserInterface(_ sender: UIButton) {
-        completeUI.isUserInteractionEnabled = false
+    @IBAction func disableUserInterfaceButton(_ sender: UIButton) {
+        completeUIView.isUserInteractionEnabled = false
     }
     
-    @IBAction func completeOneBucket(_ sender: UIButton) {
-        thisWeeksListArray.removeFirst()
-        updateTextViews(array: thisWeeksListArray, textView: thisWeeksListTV)
+    @IBAction func completeItemButton(_ sender: UIButton) {
+        weekListArray.removeFirst()
+        updateTextViews(array: weekListArray, textView: weekListTextView)
         updateButtons()
     }
     
@@ -66,50 +78,44 @@ class ViewController: UIViewController {
     func updateTextViews(array: Array<String>, textView: UITextView) {
         textView.text = ""
         for arrayItem in array {
-            textView.text.append(arrayItem)
-            textView.text.append("\n")
+            textView.text.append("\(arrayItem)\n")
         }
     }
     
     func moveItem() {
-        updateTextViews(array: bucketListArray, textView: bucketListTV)
-        updateTextViews(array: thisWeeksListArray, textView: thisWeeksListTV)
+        updateTextViews(array: bucketListArray, textView: bucketListTextView)
+        updateTextViews(array: weekListArray, textView: weekListTextView)
         updateButtons()
     }
     
     func updateButtons() {
         if bucketListArray.isEmpty {
-            removeItemB.isEnabled = false
-            addItemToWeekB.isEnabled = false
+            removeItemFromBucketListButton.isEnabled = false
+            moveItemToWeekListButton.isEnabled = false
         } else {
-            removeItemB.isEnabled = true
-            addItemToWeekB.isEnabled = true
+            removeItemFromBucketListButton.isEnabled = true
+            moveItemToWeekListButton.isEnabled = true
         }
-        if thisWeeksListArray.isEmpty {
-            completeItemB.isEnabled = false
-            addItemToListB.isEnabled = false
+        if weekListArray.isEmpty {
+            completeItemButton.isEnabled = false
+            moveItemToBucketListButton.isEnabled = false
         } else {
-            completeItemB.isEnabled = true
-            addItemToListB.isEnabled = true
+            completeItemButton.isEnabled = true
+            moveItemToBucketListButton.isEnabled = true
         }
-    }
-    
-    func emptyAddBucketTF() {
-        addItemTF.text?.removeAll()
-        addItemTF.resignFirstResponder()
-    }
-    
-    func disableRemoveBucketItemB() {
-        removeItemB.isEnabled = false
-    }
-    
-    // MARK: - Overridden Functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func disableRemoveBucketItemB() {
+        removeItemFromBucketListButton.isEnabled = false
+    }
+    
+    func showAlert(_ alert: String, withTitle
+        title: String){
+        let alertController = UIAlertController(title: title, message:
+            alert, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default,
+                                          handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
-

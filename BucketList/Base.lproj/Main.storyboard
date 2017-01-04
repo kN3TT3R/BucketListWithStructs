@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,73 +42,73 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="This must be done!" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-qJ-VS5" userLabel="addItemTF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="This must be done!" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-qJ-VS5" userLabel="addItemTextField">
                                 <rect key="frame" x="20" y="62" width="226" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-Ru-hut" userLabel="addItemB">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-Ru-hut" userLabel="addItemToBucketListButton">
                                 <rect key="frame" x="254" y="66" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="addItemB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P5m-M5-maM"/>
+                                    <action selector="addItemToBucketListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNd-i9-SDW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgm-sf-vYz" userLabel="removeItemB">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgm-sf-vYz" userLabel="removeItemFromBucketListButton">
                                 <rect key="frame" x="64" y="20" width="138" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Oh well, next life!"/>
                                 <connections>
-                                    <action selector="removeItemB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RJX-AF-2cp"/>
+                                    <action selector="removeItemFromBucketListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ys9-J6-zg1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-NA-BBN" userLabel="addItemToListB">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-NA-BBN" userLabel="moveItemToBucketListButton">
                                 <rect key="frame" x="254" y="128" width="80" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pijl links klein">
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="removeFromThisWeek:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UUI-Z9-q9S"/>
+                                    <action selector="moveItemToBucketListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FxX-KL-O0r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geN-Gk-ULg" userLabel="addItemToWeekB">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geN-Gk-ULg" userLabel="moveItemToWeekListButton">
                                 <rect key="frame" x="254" y="186" width="80" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pijl rechts klein">
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToThisWeek:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XYY-cU-DwP"/>
+                                    <action selector="moveItemToWeekListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="44F-hl-iRJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDk-DV-P3w" userLabel="completeItemB">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDk-DV-P3w" userLabel="completeItemButton">
                                 <rect key="frame" x="386" y="232" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Completed One!"/>
                                 <connections>
-                                    <action selector="completeOneBucket:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FYY-Mk-oV9"/>
+                                    <action selector="completeItemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BtZ-Ru-QNR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-4D-j2v">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-4D-j2v" userLabel="disableUIButton">
                                 <rect key="frame" x="383" y="270" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="I'm dead already!"/>
                                 <connections>
-                                    <action selector="disableUserInterface:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pqO-Lw-sE2"/>
+                                    <action selector="disableUserInterfaceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sBF-f9-xVr"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg3-Qo-rnQ" userLabel="bucketListTV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg3-Qo-rnQ" userLabel="bucketListTextView">
                                 <rect key="frame" x="20" y="143" width="226" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-EC-gC5" userLabel="thisWeeksListTV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-EC-gC5" userLabel="weekListTextView">
                                 <rect key="frame" x="336" y="118" width="212" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.55678879310344831" colorSpace="calibratedWhite"/>
@@ -125,14 +125,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addItemTF" destination="JoB-qJ-VS5" id="xFs-5s-5Y0"/>
-                        <outlet property="addItemToListB" destination="Ewo-NA-BBN" id="EVk-RK-ovp"/>
-                        <outlet property="addItemToWeekB" destination="geN-Gk-ULg" id="nww-qp-F05"/>
-                        <outlet property="bucketListTV" destination="eg3-Qo-rnQ" id="9yd-Cq-iL1"/>
-                        <outlet property="completeItemB" destination="GDk-DV-P3w" id="qK8-4H-ulK"/>
-                        <outlet property="completeUI" destination="8bC-Xf-vdC" id="Hdf-hB-def"/>
-                        <outlet property="removeItemB" destination="Sgm-sf-vYz" id="aVa-O4-JrN"/>
-                        <outlet property="thisWeeksListTV" destination="PIB-EC-gC5" id="l2E-JJ-4KV"/>
+                        <outlet property="addItemTextField" destination="JoB-qJ-VS5" id="iGw-Mm-XUb"/>
+                        <outlet property="bucketListTextView" destination="eg3-Qo-rnQ" id="gjy-ci-VZj"/>
+                        <outlet property="completeItemButton" destination="GDk-DV-P3w" id="WTQ-Zn-daO"/>
+                        <outlet property="completeUIView" destination="8bC-Xf-vdC" id="TZj-8T-Jxe"/>
+                        <outlet property="moveItemToBucketListButton" destination="Ewo-NA-BBN" id="RUy-fg-02B"/>
+                        <outlet property="moveItemToWeekListButton" destination="geN-Gk-ULg" id="fFl-8p-3En"/>
+                        <outlet property="removeItemFromBucketListButton" destination="Sgm-sf-vYz" id="Jud-Ox-UA6"/>
+                        <outlet property="weekListTextView" destination="PIB-EC-gC5" id="cYH-6d-Gh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
