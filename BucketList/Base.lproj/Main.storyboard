@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -125,10 +125,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButtonToBucketListButton" destination="BAW-Ru-hut" id="cl5-jO-fKY"/>
                         <outlet property="addItemTextField" destination="JoB-qJ-VS5" id="iGw-Mm-XUb"/>
                         <outlet property="bucketListTextView" destination="eg3-Qo-rnQ" id="gjy-ci-VZj"/>
                         <outlet property="completeItemButton" destination="GDk-DV-P3w" id="WTQ-Zn-daO"/>
-                        <outlet property="completeUIView" destination="8bC-Xf-vdC" id="TZj-8T-Jxe"/>
+                        <outlet property="disableUIButton" destination="2j7-4D-j2v" id="sd0-8M-LdE"/>
                         <outlet property="moveItemToBucketListButton" destination="Ewo-NA-BBN" id="RUy-fg-02B"/>
                         <outlet property="moveItemToWeekListButton" destination="geN-Gk-ULg" id="fFl-8p-3En"/>
                         <outlet property="removeItemFromBucketListButton" destination="Sgm-sf-vYz" id="Jud-Ox-UA6"/>

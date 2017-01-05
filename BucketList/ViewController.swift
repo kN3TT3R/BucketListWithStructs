@@ -15,10 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var bucketListTextView: UITextView!
     @IBOutlet weak var weekListTextView: UITextView!
     @IBOutlet weak var removeItemFromBucketListButton: UIButton!
+    @IBOutlet weak var addButtonToBucketListButton: UIButton!
     @IBOutlet weak var moveItemToWeekListButton: UIButton!
     @IBOutlet weak var moveItemToBucketListButton: UIButton!
     @IBOutlet weak var completeItemButton: UIButton!
-    @IBOutlet var completeUIView: UIView!
+    @IBOutlet weak var disableUIButton: UIButton!
 
     // MARK: - Global Variables & Constants
     var bucketListArray = [String] ()
@@ -53,19 +54,33 @@ class ViewController: UIViewController {
     }
     
     @IBAction func moveItemToWeekListButton(_ sender: UIButton) {
-        weekListArray.append(bucketListArray[0])
-        bucketListArray.removeFirst()
-        moveItem()
+        if !bucketListArray.isEmpty {
+            weekListArray.append(bucketListArray[0])
+            bucketListArray.removeFirst()
+            moveItem()
+        }
     }
 
     @IBAction func moveItemToBucketListButton(_ sender: UIButton) {
-        bucketListArray.insert(weekListArray[0], at: 0)
-        weekListArray.removeFirst()
-        moveItem()
+        if !weekListArray.isEmpty {
+            bucketListArray.insert(weekListArray[0], at: 0)
+            weekListArray.removeFirst()
+            moveItem()
+        }
     }
 
     @IBAction func disableUserInterfaceButton(_ sender: UIButton) {
-        completeUIView.isUserInteractionEnabled = false
+        bucketListTextView.text.removeAll()
+        weekListTextView.text.removeAll()
+        addItemTextField.isEnabled = false
+        bucketListTextView.isSelectable = false
+        weekListTextView.isSelectable = false
+        removeItemFromBucketListButton.isEnabled = false
+        addButtonToBucketListButton.isEnabled = false
+        moveItemToWeekListButton.isEnabled = false
+        moveItemToBucketListButton.isEnabled = false
+        completeItemButton.isEnabled = false
+        disableUIButton.isEnabled = false
     }
     
     @IBAction func completeItemButton(_ sender: UIButton) {
