@@ -53,7 +53,7 @@
                                 <rect key="frame" x="254" y="66" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="addItemToBucketListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sNd-i9-SDW"/>
+                                    <action selector="addItemToBucketList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jNq-oN-f86"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgm-sf-vYz" userLabel="removeItemFromBucketListButton">
@@ -62,7 +62,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Oh well, next life!"/>
                                 <connections>
-                                    <action selector="removeItemFromBucketListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ys9-J6-zg1"/>
+                                    <action selector="removeItemFromBucketList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Q3-3j-mTd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewo-NA-BBN" userLabel="moveItemToBucketListButton">
@@ -72,7 +72,7 @@
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="moveItemToBucketListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FxX-KL-O0r"/>
+                                    <action selector="moveItemToBucketList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdL-dl-wjJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geN-Gk-ULg" userLabel="moveItemToWeekListButton">
@@ -82,23 +82,23 @@
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="moveItemToWeekListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="44F-hl-iRJ"/>
+                                    <action selector="moveItemToWeekList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7N-1j-iTI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDk-DV-P3w" userLabel="completeItemButton">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDk-DV-P3w" userLabel="completedItemButton">
                                 <rect key="frame" x="386" y="232" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Completed One!"/>
                                 <connections>
-                                    <action selector="completeItemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BtZ-Ru-QNR"/>
+                                    <action selector="completedItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4a-op-u7r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-4D-j2v" userLabel="disableUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-4D-j2v" userLabel="disableUIButton">
                                 <rect key="frame" x="383" y="270" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="I'm dead already!"/>
                                 <connections>
-                                    <action selector="disableUserInterfaceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sBF-f9-xVr"/>
+                                    <action selector="disableUserInterface:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gva-e9-mlp"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg3-Qo-rnQ" userLabel="bucketListTextView">
@@ -131,7 +131,7 @@
                         <outlet property="completeItemButton" destination="GDk-DV-P3w" id="WTQ-Zn-daO"/>
                         <outlet property="disableUIButton" destination="2j7-4D-j2v" id="sd0-8M-LdE"/>
                         <outlet property="moveItemToBucketListButton" destination="Ewo-NA-BBN" id="RUy-fg-02B"/>
-                        <outlet property="moveItemToWeekListButton" destination="geN-Gk-ULg" id="fFl-8p-3En"/>
+                        <outlet property="moveItemToWeekListButton" destination="geN-Gk-ULg" id="y3R-Ma-KV9"/>
                         <outlet property="removeItemFromBucketListButton" destination="Sgm-sf-vYz" id="Jud-Ox-UA6"/>
                         <outlet property="weekListTextView" destination="PIB-EC-gC5" id="cYH-6d-Gh5"/>
                     </connections>
