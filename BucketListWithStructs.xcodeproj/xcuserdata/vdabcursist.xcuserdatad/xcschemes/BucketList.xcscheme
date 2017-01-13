@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2F3351FD1E1B90470006995C"
-               BuildableName = "BucketList.app"
-               BlueprintName = "BucketList"
-               ReferencedContainer = "container:BucketList.xcodeproj">
+               BuildableName = "BucketListWithStructs.app"
+               BlueprintName = "BucketListWithStructs"
+               ReferencedContainer = "container:BucketListWithStructs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2F3352141E1B90470006995C"
-               BuildableName = "BucketListTests.xctest"
-               BlueprintName = "BucketListTests"
-               ReferencedContainer = "container:BucketList.xcodeproj">
+               BuildableName = "BucketListWithStructsTests.xctest"
+               BlueprintName = "BucketListWithStructsTests"
+               ReferencedContainer = "container:BucketListWithStructs.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2F33521F1E1B90470006995C"
-               BuildableName = "BucketListUITests.xctest"
-               BlueprintName = "BucketListUITests"
-               ReferencedContainer = "container:BucketList.xcodeproj">
+               BuildableName = "BucketListWithStructsUITests.xctest"
+               BlueprintName = "BucketListWithStructsUITests"
+               ReferencedContainer = "container:BucketListWithStructs.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2F3351FD1E1B90470006995C"
-            BuildableName = "BucketList.app"
-            BlueprintName = "BucketList"
-            ReferencedContainer = "container:BucketList.xcodeproj">
+            BuildableName = "BucketListWithStructs.app"
+            BlueprintName = "BucketListWithStructs"
+            ReferencedContainer = "container:BucketListWithStructs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2F3351FD1E1B90470006995C"
-            BuildableName = "BucketList.app"
-            BlueprintName = "BucketList"
-            ReferencedContainer = "container:BucketList.xcodeproj">
+            BuildableName = "BucketListWithStructs.app"
+            BlueprintName = "BucketListWithStructs"
+            ReferencedContainer = "container:BucketListWithStructs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2F3351FD1E1B90470006995C"
-            BuildableName = "BucketList.app"
-            BlueprintName = "BucketList"
-            ReferencedContainer = "container:BucketList.xcodeproj">
+            BuildableName = "BucketListWithStructs.app"
+            BlueprintName = "BucketListWithStructs"
+            ReferencedContainer = "container:BucketListWithStructs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

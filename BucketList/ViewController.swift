@@ -23,9 +23,38 @@ class ViewController: UIViewController {
     @IBOutlet weak var disableUIButton: UIButton!
 
     
-    // MARK: - Global Variables & Constants
+    // MARK: - Global Variables, Constants & Structs
     var bucketListArray = [String] ()
     var weekListArray = [String] ()
+    
+    struct WishList {
+        var wishList = [Wish] ()
+        var wish = Wish(title: "")
+        
+        mutating func add(_ wish: Wish) {
+            wishList.append(wish)
+        }
+        
+        mutating func removeFirst() {
+            wishList.removeFirst()
+        }
+        
+        func isEmpty() -> Bool {
+            return wishList.isEmpty
+        }
+        
+        mutating func insert(wish: Wish) {
+            wishList.insert(wish, at: 0)
+        }
+    }
+    
+    struct Wish {
+        var title = ""
+    }
+    
+    var bucketList = WishList()
+    var weekList = WishList()
+    var wish = Wish()
     
     
     // MARK: - Overridden Functions
@@ -41,40 +70,39 @@ class ViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func addItemToBucketList(_ sender: UIButton) {
         if !addItemTextField.text!.isEmpty && addItemTextField != nil {
-            bucketListArray.append(addItemTextField.text!)
+            wish.title = addItemTextField.text!
+            bucketList.add(wish)
             addItemTextField.text?.removeAll()
         } else {
             showAlert("Don't you got any wishes?", withTitle: "No wish!")
         }
-        update(bucketListTextView, with: bucketListArray)
+        update(bucketListTextView, with: bucketList)
         updateButtons()
         addItemTextField.resignFirstResponder()
     }
     
     @IBAction func removeItemFromBucketList(_ sender: UIButton) {
-        if !bucketListArray.isEmpty {
-            bucketListArray.removeFirst()
-            update(bucketListTextView, with: bucketListArray)
+        if !bucketList.isEmpty() {
+            bucketList.removeFirst()
+            update(bucketListTextView, with: bucketList)
             updateButtons()
         }
     }
     
     @IBAction func moveItemToWeekList(_ sender: UIButton) {
-        if !bucketListArray.isEmpty {
-            let itemToBeMoved = bucketListArray.removeFirst()
-            weekListArray.append(itemToBeMoved)
-            update(bucketListTextView, with: bucketListArray)
-            update(weekListTextView, with: weekListArray)
+        if !bucketList.isEmpty() {
+            weekList.add(bucketList.wishList.removeFirst())
+            update(bucketListTextView, with: bucketList)
+            update(weekListTextView, with: weekList)
             updateButtons()
         }
     }
 
     @IBAction func moveItemToBucketList(_ sender: UIButton) {
-        if !weekListArray.isEmpty {
-            let itemToBeMoved = weekListArray.removeFirst()
-            bucketListArray.insert(itemToBeMoved, at: 0)
-            update(bucketListTextView, with: bucketListArray)
-            update(weekListTextView, with: weekListArray)
+        if !weekList.isEmpty() {
+            bucketList.insert(wish: weekList.wishList.removeFirst())
+            update(bucketListTextView, with: bucketList)
+            update(weekListTextView, with: weekList)
             updateButtons()
         }
     }
@@ -93,31 +121,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func completedItem(_ sender: UIButton) {
-        if !weekListArray.isEmpty {
-            weekListArray.removeFirst()
-            update(weekListTextView, with: weekListArray)
+        if !weekList.isEmpty() {
+            weekList.removeFirst()
+            update(weekListTextView, with: weekList)
             updateButtons()
         }
     }
     
     
     // MARK: - Homemade Functions
-    func update(_ textView: UITextView, with listArray: [String]) {
+    func update(_ textView: UITextView, with wishList: WishList) {
         textView.text = ""
-        for arrayItem in listArray {
-            textView.text.append("\(arrayItem)\n")
+        for wish in wishList.wishList {
+            textView.text.append("\(wish.title)\n")
         }
     }
 
     func updateButtons() {
-        if bucketListArray.isEmpty {
+        if bucketList.isEmpty() {
             removeItemFromBucketListButton.isEnabled = false
             moveItemToWeekListButton.isEnabled = false
         } else {
             removeItemFromBucketListButton.isEnabled = true
             moveItemToWeekListButton.isEnabled = true
         }
-        if weekListArray.isEmpty {
+        if weekList.isEmpty() {
             completeItemButton.isEnabled = false
             moveItemToBucketListButton.isEnabled = false
         } else {
