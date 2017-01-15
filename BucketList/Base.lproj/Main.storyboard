@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,7 +72,7 @@
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="moveItemToBucketList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TdL-dl-wjJ"/>
+                                    <action selector="moveItemToBucketList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t7V-ud-GQT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geN-Gk-ULg" userLabel="moveItemToWeekListButton">
@@ -82,7 +82,7 @@
                                     <attributedString key="attributedTitle"/>
                                 </state>
                                 <connections>
-                                    <action selector="moveItemToWeekList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C7N-1j-iTI"/>
+                                    <action selector="moveItemToWeekList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1zK-3o-JoP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDk-DV-P3w" userLabel="completedItemButton">
@@ -93,7 +93,7 @@
                                     <action selector="completedItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4a-op-u7r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-4D-j2v" userLabel="disableUIButton">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j7-4D-j2v" userLabel="disableUIButton">
                                 <rect key="frame" x="383" y="270" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="I'm dead already!"/>
@@ -130,8 +130,8 @@
                         <outlet property="bucketListTextView" destination="eg3-Qo-rnQ" id="gjy-ci-VZj"/>
                         <outlet property="completeItemButton" destination="GDk-DV-P3w" id="WTQ-Zn-daO"/>
                         <outlet property="disableUIButton" destination="2j7-4D-j2v" id="sd0-8M-LdE"/>
-                        <outlet property="moveItemToBucketListButton" destination="Ewo-NA-BBN" id="RUy-fg-02B"/>
-                        <outlet property="moveItemToWeekListButton" destination="geN-Gk-ULg" id="y3R-Ma-KV9"/>
+                        <outlet property="moveItemToBucketListButton" destination="Ewo-NA-BBN" id="1Hp-Ci-Iik"/>
+                        <outlet property="moveItemToWeekListButton" destination="geN-Gk-ULg" id="nKj-gD-BZs"/>
                         <outlet property="removeItemFromBucketListButton" destination="Sgm-sf-vYz" id="Jud-Ox-UA6"/>
                         <outlet property="weekListTextView" destination="PIB-EC-gC5" id="cYH-6d-Gh5"/>
                     </connections>

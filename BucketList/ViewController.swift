@@ -23,13 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var disableUIButton: UIButton!
 
     
-    // MARK: - Global Variables, Constants & Structs
-    var bucketListArray = [String] ()
-    var weekListArray = [String] ()
-    
+    // MARK: - Global Variables, Constants & Structures
     struct WishList {
         var wishList = [Wish] ()
-        var wish = Wish(title: "")
+        var wish = Wish()
         
         mutating func add(_ wish: Wish) {
             wishList.append(wish)
@@ -49,7 +46,7 @@ class ViewController: UIViewController {
     }
     
     struct Wish {
-        var title = ""
+        var title: String?
     }
     
     var bucketList = WishList()
@@ -77,7 +74,8 @@ class ViewController: UIViewController {
             showAlert("Don't you got any wishes?", withTitle: "No wish!")
         }
         update(bucketListTextView, with: bucketList)
-        updateButtons()
+        trigger(removeItemFromBucketListButton, forList: bucketList)
+        trigger(moveItemToWeekListButton, forList: bucketList)
         addItemTextField.resignFirstResponder()
     }
     
@@ -85,7 +83,8 @@ class ViewController: UIViewController {
         if !bucketList.isEmpty() {
             bucketList.removeFirst()
             update(bucketListTextView, with: bucketList)
-            updateButtons()
+            trigger(removeItemFromBucketListButton, forList: bucketList)
+            trigger(moveItemToWeekListButton, forList: bucketList)
         }
     }
     
@@ -94,7 +93,10 @@ class ViewController: UIViewController {
             weekList.add(bucketList.wishList.removeFirst())
             update(bucketListTextView, with: bucketList)
             update(weekListTextView, with: weekList)
-            updateButtons()
+            trigger(removeItemFromBucketListButton, forList: bucketList)
+            trigger(completeItemButton, forList: weekList)
+            trigger(moveItemToWeekListButton, forList: bucketList)
+            trigger(moveItemToBucketListButton, forList: weekList)
         }
     }
 
@@ -103,7 +105,10 @@ class ViewController: UIViewController {
             bucketList.insert(wish: weekList.wishList.removeFirst())
             update(bucketListTextView, with: bucketList)
             update(weekListTextView, with: weekList)
-            updateButtons()
+            trigger(completeItemButton, forList: weekList)
+            trigger(removeItemFromBucketListButton, forList: bucketList)
+            trigger(moveItemToBucketListButton, forList: weekList)
+            trigger(moveItemToWeekListButton, forList: bucketList)
         }
     }
 
@@ -124,7 +129,8 @@ class ViewController: UIViewController {
         if !weekList.isEmpty() {
             weekList.removeFirst()
             update(weekListTextView, with: weekList)
-            updateButtons()
+            trigger(completeItemButton, forList: weekList)
+            trigger(moveItemToBucketListButton, forList: weekList)
         }
     }
     
@@ -133,25 +139,15 @@ class ViewController: UIViewController {
     func update(_ textView: UITextView, with wishList: WishList) {
         textView.text = ""
         for wish in wishList.wishList {
-            textView.text.append("\(wish.title)\n")
+            textView.text.append("\(wish.title!)\n")
         }
     }
-
-    func updateButtons() {
-        if bucketList.isEmpty() {
-            removeItemFromBucketListButton.isEnabled = false
-            moveItemToWeekListButton.isEnabled = false
+    
+    func trigger(_ button: UIButton, forList wishList: WishList) {
+        if wishList.isEmpty() {
+            button.isEnabled = false
         } else {
-            removeItemFromBucketListButton.isEnabled = true
-            moveItemToWeekListButton.isEnabled = true
-        }
-        if weekList.isEmpty() {
-            completeItemButton.isEnabled = false
-            moveItemToBucketListButton.isEnabled = false
-        } else {
-            completeItemButton.isEnabled = true
-            moveItemToBucketListButton.isEnabled = true
-            disableUIButton.isEnabled = true
+            button.isEnabled = true
         }
     }
     
