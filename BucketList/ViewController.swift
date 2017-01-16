@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     // MARK: - Global Variables, Constants & Structures
     struct WishList {
         var wishList = [Wish] ()
-        var wish = Wish()
         
         mutating func add(_ wish: Wish) {
             wishList.append(wish)
