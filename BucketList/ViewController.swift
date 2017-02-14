@@ -22,20 +22,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var completeItemButton: UIButton!
     @IBOutlet weak var disableUIButton: UIButton!
 
+    var buttonsForaddItemToBucketList: [UIButton] = []
     
     // MARK: - Global Variables, Constants & Structures
     struct WishList {
-        //var wishList = [Wish] ()
         
-        var wishList: [Wish] {
-            didSet(newWishList) {
-                if newWishList.isEmpty {
-                    button.isEnabled = false
-                } else {
-                    button.isEnabled = true
-                }
-            }
-        }
+        var wishList = [Wish] ()
         
         mutating func add(_ wish: Wish) {
             wishList.append(wish)
@@ -58,8 +50,25 @@ class ViewController: UIViewController {
         var title: String?
     }
     
-    var bucketList = WishList()
-    var weekList = WishList()
+    var bucketList = WishList() {
+        didSet(newWishList) {
+            let buttonList = [removeItemFromBucketListButton, moveItemToWeekListButton, moveItemToWeekListButton]
+            for button in buttonList {
+                trigger(button!, forList: bucketList)
+            }
+            update(bucketListTextView, with: bucketList)
+        }
+    }
+    var weekList = WishList() {
+        didSet(newWishList) {
+            let buttonList = [completeItemButton, moveItemToBucketListButton]
+            for button in buttonList {
+                trigger(button!, forList: weekList)
+            }
+            update(weekListTextView, with: weekList)
+        }
+    }
+
     var wish = Wish()
     
     
@@ -82,42 +91,42 @@ class ViewController: UIViewController {
         } else {
             showAlert("Don't you got any wishes?", withTitle: "No wish!")
         }
-        update(bucketListTextView, with: bucketList)
-        trigger(removeItemFromBucketListButton, forList: bucketList)
-        trigger(moveItemToWeekListButton, forList: bucketList)
+//        update(bucketListTextView, with: bucketList)
+//        trigger(removeItemFromBucketListButton, forList: bucketList)
+//        trigger(moveItemToWeekListButton, forList: bucketList)
         addItemTextField.resignFirstResponder()
     }
     
     @IBAction func removeItemFromBucketList(_ sender: UIButton) {
         if !bucketList.isEmpty() {
             bucketList.removeFirst()
-            update(bucketListTextView, with: bucketList)
-            trigger(removeItemFromBucketListButton, forList: bucketList)
-            trigger(moveItemToWeekListButton, forList: bucketList)
+//            update(bucketListTextView, with: bucketList)
+//            trigger(removeItemFromBucketListButton, forList: bucketList)
+//            trigger(moveItemToWeekListButton, forList: bucketList)
         }
     }
     
     @IBAction func moveItemToWeekList(_ sender: UIButton) {
         if !bucketList.isEmpty() {
             weekList.add(bucketList.wishList.removeFirst())
-            update(bucketListTextView, with: bucketList)
-            update(weekListTextView, with: weekList)
-            trigger(removeItemFromBucketListButton, forList: bucketList)
-            trigger(completeItemButton, forList: weekList)
-            trigger(moveItemToWeekListButton, forList: bucketList)
-            trigger(moveItemToBucketListButton, forList: weekList)
+//            update(bucketListTextView, with: bucketList)
+//            update(weekListTextView, with: weekList)
+//            trigger(removeItemFromBucketListButton, forList: bucketList)
+//            trigger(completeItemButton, forList: weekList)
+//            trigger(moveItemToWeekListButton, forList: bucketList)
+//            trigger(moveItemToBucketListButton, forList: weekList)
         }
     }
 
     @IBAction func moveItemToBucketList(_ sender: UIButton) {
         if !weekList.isEmpty() {
             bucketList.insert(wish: weekList.wishList.removeFirst())
-            update(bucketListTextView, with: bucketList)
-            update(weekListTextView, with: weekList)
-            trigger(completeItemButton, forList: weekList)
-            trigger(removeItemFromBucketListButton, forList: bucketList)
-            trigger(moveItemToBucketListButton, forList: weekList)
-            trigger(moveItemToWeekListButton, forList: bucketList)
+//            update(bucketListTextView, with: bucketList)
+//            update(weekListTextView, with: weekList)
+//            trigger(completeItemButton, forList: weekList)
+//            trigger(removeItemFromBucketListButton, forList: bucketList)
+//            trigger(moveItemToBucketListButton, forList: weekList)
+//            trigger(moveItemToWeekListButton, forList: bucketList)
         }
     }
 
@@ -137,9 +146,9 @@ class ViewController: UIViewController {
     @IBAction func completedItem(_ sender: UIButton) {
         if !weekList.isEmpty() {
             weekList.removeFirst()
-            update(weekListTextView, with: weekList)
-            trigger(completeItemButton, forList: weekList)
-            trigger(moveItemToBucketListButton, forList: weekList)
+//            update(weekListTextView, with: weekList)
+//            trigger(completeItemButton, forList: weekList)
+//            trigger(moveItemToBucketListButton, forList: weekList)
         }
     }
     
