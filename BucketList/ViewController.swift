@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  BucketList
+//  BucketListWithObservers
 //
-//  Created by Kenneth Debruyn on 3/01/17.
+//  Created by Kenneth Debruyn on 29/01/17.
 //  Copyright © 2017 kN3TT3R. All rights reserved.
 //
 
@@ -25,7 +25,17 @@ class ViewController: UIViewController {
     
     // MARK: - Global Variables, Constants & Structures
     struct WishList {
-        var wishList = [Wish] ()
+        //var wishList = [Wish] ()
+        
+        var wishList: [Wish] {
+            didSet(newWishList) {
+                if newWishList.isEmpty {
+                    button.isEnabled = false
+                } else {
+                    button.isEnabled = true
+                }
+            }
+        }
         
         mutating func add(_ wish: Wish) {
             wishList.append(wish)
