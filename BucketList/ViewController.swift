@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
@@ -22,68 +23,48 @@ class ViewController: UIViewController {
     @IBOutlet weak var completeItemButton: UIButton!
     @IBOutlet weak var disableUIButton: UIButton!
 
-    var buttonsForaddItemToBucketList: [UIButton] = []
+    private var myContext = 0
+    
     
     // MARK: - Global Variables, Constants & Structures
-    struct WishList {
-        
-        var wishList = [Wish] ()
-        
-        mutating func add(_ wish: Wish) {
-            wishList.append(wish)
-        }
-        
-        mutating func removeFirst() {
-            wishList.removeFirst()
-        }
-        
-        func isEmpty() -> Bool {
-            return wishList.isEmpty
-        }
-        
-        mutating func insert(wish: Wish) {
-            wishList.insert(wish, at: 0)
-        }
-    }
-    
-    struct Wish {
-        var title: String?
-    }
-    
-    var bucketList = WishList() {
-        didSet(newWishList) {
-            let buttonList = [removeItemFromBucketListButton, moveItemToWeekListButton, moveItemToWeekListButton]
-            for button in buttonList {
-                trigger(button!, forList: bucketList)
-            }
-            update(bucketListTextView, with: bucketList)
-        }
-    }
-    var weekList = WishList() {
-        didSet(newWishList) {
-            let buttonList = [completeItemButton, moveItemToBucketListButton]
-            for button in buttonList {
-                trigger(button!, forList: weekList)
-            }
-            update(weekListTextView, with: weekList)
-        }
-    }
-
-    var wish = Wish()
+    var bucketList = WishList()
+    var weekList = WishList()
+    //var wish = Wish()
     
     
     // MARK: - Overridden Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bucketList.addObserver(self, forKeyPath: "wishList", options: .new, context: &myContext)
+        weekList.addObserver(self, forKeyPath: "wishList", options: .new, context: &myContext)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
+    override func observeValue(forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey: Any]?,
+        context: UnsafeMutableRawPointer?)
+    {
+        if context == &myContext {
+            let bucketButtonList = [removeItemFromBucketListButton, moveItemToWeekListButton, moveItemToWeekListButton]
+            let weekButtonList = [completeItemButton, moveItemToBucketListButton]
+        
+            trigger(bucketButtonList as! [UIButton], forList: bucketList)
+            trigger(weekButtonList as! [UIButton], forList: weekList)
+            
+            update(bucketListTextView, with: bucketList)
+            update(weekListTextView, with: weekList)
+        }
+    }
+
+
     // MARK: - IBActions
     @IBAction func addItemToBucketList(_ sender: UIButton) {
+        let wish = Wish()
         if !addItemTextField.text!.isEmpty && addItemTextField != nil {
             wish.title = addItemTextField.text!
             bucketList.add(wish)
@@ -91,42 +72,24 @@ class ViewController: UIViewController {
         } else {
             showAlert("Don't you got any wishes?", withTitle: "No wish!")
         }
-//        update(bucketListTextView, with: bucketList)
-//        trigger(removeItemFromBucketListButton, forList: bucketList)
-//        trigger(moveItemToWeekListButton, forList: bucketList)
         addItemTextField.resignFirstResponder()
     }
     
     @IBAction func removeItemFromBucketList(_ sender: UIButton) {
         if !bucketList.isEmpty() {
             bucketList.removeFirst()
-//            update(bucketListTextView, with: bucketList)
-//            trigger(removeItemFromBucketListButton, forList: bucketList)
-//            trigger(moveItemToWeekListButton, forList: bucketList)
         }
     }
     
     @IBAction func moveItemToWeekList(_ sender: UIButton) {
         if !bucketList.isEmpty() {
             weekList.add(bucketList.wishList.removeFirst())
-//            update(bucketListTextView, with: bucketList)
-//            update(weekListTextView, with: weekList)
-//            trigger(removeItemFromBucketListButton, forList: bucketList)
-//            trigger(completeItemButton, forList: weekList)
-//            trigger(moveItemToWeekListButton, forList: bucketList)
-//            trigger(moveItemToBucketListButton, forList: weekList)
         }
     }
 
     @IBAction func moveItemToBucketList(_ sender: UIButton) {
         if !weekList.isEmpty() {
             bucketList.insert(wish: weekList.wishList.removeFirst())
-//            update(bucketListTextView, with: bucketList)
-//            update(weekListTextView, with: weekList)
-//            trigger(completeItemButton, forList: weekList)
-//            trigger(removeItemFromBucketListButton, forList: bucketList)
-//            trigger(moveItemToBucketListButton, forList: weekList)
-//            trigger(moveItemToWeekListButton, forList: bucketList)
         }
     }
 
@@ -146,9 +109,6 @@ class ViewController: UIViewController {
     @IBAction func completedItem(_ sender: UIButton) {
         if !weekList.isEmpty() {
             weekList.removeFirst()
-//            update(weekListTextView, with: weekList)
-//            trigger(completeItemButton, forList: weekList)
-//            trigger(moveItemToBucketListButton, forList: weekList)
         }
     }
     
@@ -157,15 +117,18 @@ class ViewController: UIViewController {
     func update(_ textView: UITextView, with wishList: WishList) {
         textView.text = ""
         for wish in wishList.wishList {
+            print(wish.title)
             textView.text.append("\(wish.title!)\n")
         }
     }
     
-    func trigger(_ button: UIButton, forList wishList: WishList) {
-        if wishList.isEmpty() {
-            button.isEnabled = false
-        } else {
-            button.isEnabled = true
+    func trigger(_ buttons: [UIButton], forList wishList: WishList) {
+        for button in buttons {
+            if wishList.isEmpty() {
+                button.isEnabled = false
+            } else {
+                button.isEnabled = true
+            }
         }
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1A934B1E66D9ED006A8328 /* WishList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A934A1E66D9ED006A8328 /* WishList.swift */; };
+		2F1A934D1E66DA17006A8328 /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A934C1E66DA17006A8328 /* Wish.swift */; };
 		2F3352021E1B90470006995C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3352011E1B90470006995C /* AppDelegate.swift */; };
 		2F3352041E1B90470006995C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3352031E1B90470006995C /* ViewController.swift */; };
 		2F3352071E1B90470006995C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3352051E1B90470006995C /* Main.storyboard */; };
@@ -35,7 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F3351FE1E1B90470006995C /* BucketListWithStructs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListWithStructs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F1A934A1E66D9ED006A8328 /* WishList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishList.swift; sourceTree = "<group>"; };
+		2F1A934C1E66DA17006A8328 /* Wish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
+		2F3351FE1E1B90470006995C /* BucketListWithObservers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BucketListWithObservers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3352011E1B90470006995C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3352031E1B90470006995C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2F3352061E1B90470006995C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,10 +47,10 @@
 		2F33520B1E1B90470006995C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F33520E1E1B90470006995C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F3352101E1B90470006995C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F3352151E1B90470006995C /* BucketListWithStructsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListWithStructsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F3352151E1B90470006995C /* BucketListWithObserversTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListWithObserversTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3352191E1B90470006995C /* BucketListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTests.swift; sourceTree = "<group>"; };
 		2F33521B1E1B90470006995C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F3352201E1B90470006995C /* BucketListWithStructsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListWithStructsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F3352201E1B90470006995C /* BucketListWithObserversUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BucketListWithObserversUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3352241E1B90470006995C /* BucketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListUITests.swift; sourceTree = "<group>"; };
 		2F3352261E1B90470006995C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,9 +93,9 @@
 		2F3351FF1E1B90470006995C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F3351FE1E1B90470006995C /* BucketListWithStructs.app */,
-				2F3352151E1B90470006995C /* BucketListWithStructsTests.xctest */,
-				2F3352201E1B90470006995C /* BucketListWithStructsUITests.xctest */,
+				2F3351FE1E1B90470006995C /* BucketListWithObservers.app */,
+				2F3352151E1B90470006995C /* BucketListWithObserversTests.xctest */,
+				2F3352201E1B90470006995C /* BucketListWithObserversUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +110,8 @@
 				2F33520D1E1B90470006995C /* LaunchScreen.storyboard */,
 				2F3352101E1B90470006995C /* Info.plist */,
 				2F3352081E1B90470006995C /* BucketList.xcdatamodeld */,
+				2F1A934A1E66D9ED006A8328 /* WishList.swift */,
+				2F1A934C1E66DA17006A8328 /* Wish.swift */,
 			);
 			path = BucketList;
 			sourceTree = "<group>";
@@ -131,9 +137,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2F3351FD1E1B90470006995C /* BucketListWithStructs */ = {
+		2F3351FD1E1B90470006995C /* BucketListWithObservers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F3352291E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithStructs" */;
+			buildConfigurationList = 2F3352291E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithObservers" */;
 			buildPhases = (
 				2F3351FA1E1B90470006995C /* Sources */,
 				2F3351FB1E1B90470006995C /* Frameworks */,
@@ -143,14 +149,14 @@
 			);
 			dependencies = (
 			);
-			name = BucketListWithStructs;
+			name = BucketListWithObservers;
 			productName = BucketList;
-			productReference = 2F3351FE1E1B90470006995C /* BucketListWithStructs.app */;
+			productReference = 2F3351FE1E1B90470006995C /* BucketListWithObservers.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2F3352141E1B90470006995C /* BucketListWithStructsTests */ = {
+		2F3352141E1B90470006995C /* BucketListWithObserversTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F33522C1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithStructsTests" */;
+			buildConfigurationList = 2F33522C1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithObserversTests" */;
 			buildPhases = (
 				2F3352111E1B90470006995C /* Sources */,
 				2F3352121E1B90470006995C /* Frameworks */,
@@ -161,14 +167,14 @@
 			dependencies = (
 				2F3352171E1B90470006995C /* PBXTargetDependency */,
 			);
-			name = BucketListWithStructsTests;
+			name = BucketListWithObserversTests;
 			productName = BucketListTests;
-			productReference = 2F3352151E1B90470006995C /* BucketListWithStructsTests.xctest */;
+			productReference = 2F3352151E1B90470006995C /* BucketListWithObserversTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2F33521F1E1B90470006995C /* BucketListWithStructsUITests */ = {
+		2F33521F1E1B90470006995C /* BucketListWithObserversUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F33522F1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithStructsUITests" */;
+			buildConfigurationList = 2F33522F1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithObserversUITests" */;
 			buildPhases = (
 				2F33521C1E1B90470006995C /* Sources */,
 				2F33521D1E1B90470006995C /* Frameworks */,
@@ -179,9 +185,9 @@
 			dependencies = (
 				2F3352221E1B90470006995C /* PBXTargetDependency */,
 			);
-			name = BucketListWithStructsUITests;
+			name = BucketListWithObserversUITests;
 			productName = BucketListUITests;
-			productReference = 2F3352201E1B90470006995C /* BucketListWithStructsUITests.xctest */;
+			productReference = 2F3352201E1B90470006995C /* BucketListWithObserversUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +216,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2F3351F91E1B90470006995C /* Build configuration list for PBXProject "BucketListWithStructs" */;
+			buildConfigurationList = 2F3351F91E1B90470006995C /* Build configuration list for PBXProject "BucketListWithObservers" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,9 +229,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2F3351FD1E1B90470006995C /* BucketListWithStructs */,
-				2F3352141E1B90470006995C /* BucketListWithStructsTests */,
-				2F33521F1E1B90470006995C /* BucketListWithStructsUITests */,
+				2F3351FD1E1B90470006995C /* BucketListWithObservers */,
+				2F3352141E1B90470006995C /* BucketListWithObserversTests */,
+				2F33521F1E1B90470006995C /* BucketListWithObserversUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +270,8 @@
 			files = (
 				2F3352041E1B90470006995C /* ViewController.swift in Sources */,
 				2F33520A1E1B90470006995C /* BucketList.xcdatamodeld in Sources */,
+				2F1A934B1E66D9ED006A8328 /* WishList.swift in Sources */,
+				2F1A934D1E66DA17006A8328 /* Wish.swift in Sources */,
 				2F3352021E1B90470006995C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,12 +297,12 @@
 /* Begin PBXTargetDependency section */
 		2F3352171E1B90470006995C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F3351FD1E1B90470006995C /* BucketListWithStructs */;
+			target = 2F3351FD1E1B90470006995C /* BucketListWithObservers */;
 			targetProxy = 2F3352161E1B90470006995C /* PBXContainerItemProxy */;
 		};
 		2F3352221E1B90470006995C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F3351FD1E1B90470006995C /* BucketListWithStructs */;
+			target = 2F3351FD1E1B90470006995C /* BucketListWithObservers */;
 			targetProxy = 2F3352211E1B90470006995C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -418,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BucketList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.kn3tt3r.projects.BucketListWithStructs;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kn3tt3r.projects.BucketListWithObservers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -430,7 +438,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BucketList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.kn3tt3r.projects.BucketListWithStructs;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kn3tt3r.projects.BucketListWithObservers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -446,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kn3tt3r.projects.BucketListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketListWithStructs.app/BucketListWithStructs";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketListWithObservers.app/BucketListWithObservers";
 			};
 			name = Debug;
 		};
@@ -460,7 +468,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kn3tt3r.projects.BucketListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketListWithStructs.app/BucketListWithStructs";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BucketListWithObservers.app/BucketListWithObservers";
 			};
 			name = Release;
 		};
@@ -493,7 +501,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F3351F91E1B90470006995C /* Build configuration list for PBXProject "BucketListWithStructs" */ = {
+		2F3351F91E1B90470006995C /* Build configuration list for PBXProject "BucketListWithObservers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F3352271E1B90470006995C /* Debug */,
@@ -502,7 +510,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F3352291E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithStructs" */ = {
+		2F3352291E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithObservers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F33522A1E1B90470006995C /* Debug */,
@@ -511,7 +519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F33522C1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithStructsTests" */ = {
+		2F33522C1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithObserversTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F33522D1E1B90470006995C /* Debug */,
@@ -520,7 +528,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F33522F1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithStructsUITests" */ = {
+		2F33522F1E1B90470006995C /* Build configuration list for PBXNativeTarget "BucketListWithObserversUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F3352301E1B90470006995C /* Debug */,
